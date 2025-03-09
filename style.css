@@ -1,0 +1,166 @@
+/* General Styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background: url('https://www.transparenttextures.com/patterns/hexagonal-grid-2.png'), #121212;
+    color: #fff;
+    cursor: pointer;
+    position: relative;
+    overflow: auto;
+    height: 100%;
+    background-size: cover;
+    background-attachment: fixed;
+    padding-bottom: 100px;
+}
+
+/* Main Container */
+.main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+    z-index: 2;
+    padding-bottom: 30px;
+    width: 100%;
+}
+
+/* Header */
+h1 {
+    text-align: center;
+    font-size: 60px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    color: #00ffeb;
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.5), 0 0 20px rgba(0, 255, 255, 0.6);
+    margin-bottom: 40px;
+}
+
+/* Logo */
+.logo {
+    width: 50px;
+    height: 50px;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Form Styling */
+.form-container {
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 15px;
+    padding: 40px;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.6);
+    position: relative;
+    z-index: 1;
+}
+
+/* Input Field Styling */
+.input-group {
+    margin-bottom: 25px;
+}
+
+input {
+    width: 100%;
+    padding: 15px;
+    margin: 10px 0;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 15px;
+    font-size: 16px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    outline: none;
+    transition: 0.3s;
+}
+
+input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+input:hover,
+input:focus {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-color: rgba(0, 255, 255, 0.8);
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.7);
+}
+
+/* Button Styling */
+button {
+    padding: 15px 30px;
+    background: linear-gradient(45deg, #ff00d4, #00f8ff);
+    border: none;
+    border-radius: 30px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+}
+
+button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.8);
+}
+
+button:active {
+    transform: scale(1.05);
+}
+
+/* Neon Border for Inputs */
+input[type="text"]:focus,
+input[type="file"]:focus {
+    border: 2px solid #00ffeb;
+    box-shadow: 0 0 10px #00ffeb;
+}
+
+/* Action Buttons Container (Side by Side) */
+.action-buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 500px;
+    margin-top: 30px;
+}
+
+.preview-btn, .generate-pdf-btn {
+    margin: 10px;
+    padding: 15px 30px;
+    background: linear-gradient(45deg, #ff007b, #00b7ff);
+    border: none;
+    border-radius: 30px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.preview-btn:hover, .generate-pdf-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 0px 20px rgba(0, 255, 255, 0.8);
+    background: linear-gradient(45deg, #ff4e00, #00ffeb);
+}
+
+/* Footer Styling */
+.footer {
+    text-align: center;
+    margin-top: 50px;
+    font-size: 20px;
+    color: #fff;
+    font-weight: bold;
+    font-family: 'Roboto', sans-serif;
+    letter-spacing: 1px;
+    text-shadow: 0 0 15px rgba(0, 255, 255, 0.7), 0 0 25px rgba(0, 255, 255, 0.8);
+}
+
+/* Footer "Created by Jitendra" */
+.footer p {
+    color: #00ffeb;
+    font-size: 24px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-weight: 600;
+}

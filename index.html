@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LABEL MAKER</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="main-container">
+        <header>
+            <img src="assets/images/icon.png" alt="Logo" class="logo">
+            <h1>LABEL MAKER</h1>
+        </header>
+
+        <div class="form-container">
+            <form id="labelForm">
+                <div class="input-group">
+                    <label for="project_name">Project Name:</label>
+                    <input type="text" id="project_name" name="project_name" placeholder="Enter Project Name" required>
+                </div>
+                <div class="input-group">
+                    <label for="project_location">Location:</label>
+                    <input type="text" id="project_location" name="project_location" placeholder="Enter Location" required>
+                </div>
+                <div class="input-group">
+                    <label for="project_date">Date:</label>
+                    <input type="date" id="project_date" name="project_date" required>
+                </div>
+                <div class="input-group">
+                    <label for="fileInput">Upload Data File (CSV, XLSX):</label>
+                    <input type="file" id="fileInput" accept=".csv, .xlsx, .xls" required>
+                </div>
+                <button type="button" onclick="handleFileSubmit()">Submit</button>
+            </form>
+        </div>
+
+        <div class="action-buttons">
+            <!-- Both buttons visible only after file is uploaded -->
+            <button class="preview-btn" onclick="previewLabels()">Preview Labels</button>
+            <button class="generate-pdf-btn" onclick="generatePDF()">Generate PDF</button>
+        </div>
+
+        <div id="preview-container" class="preview-container"></div>
+
+        <div class="footer">
+            <p>Created by Jitendra</p>
+        </div>
+    </div>
+
+    <!-- External JS libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
+    
+    <!-- Correct order of jsPDF CDN (Ensure this is loaded first) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    
+    <!-- Custom JS script -->
+    <script src="js/script.js"></script>
+</body>
+</html>

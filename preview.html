@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preview Labels</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="main-container">
+        <header>
+            <img src="/assets/images/icon.png" alt="Logo" class="logo">
+            <h1>Preview Labels</h1>
+        </header>
+
+        <!-- Preview Container for Label Content -->
+        <div id="preview-container" class="preview-container">
+            <!-- Preview content will be dynamically added here -->
+        </div>
+
+        <iframe id="pdfPreview" style="width: 100%; height: 90vh;"></iframe>
+
+        <!-- Buttons Container -->
+        <div class="button-container">
+            <button onclick="window.history.back()" class="back-btn">Back</button>
+            <button id="downloadPdfButton" onclick="downloadPDF()" class="download-btn">Download PDF</button>
+        </div>
+
+        <div class="footer">
+            <p>Created by Jitendra</p>
+        </div>
+    </div>
+
+    <!-- Include jsPDF library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+    <script>
+        // Load the preview data
+        const pdfData = localStorage.getItem('pdf_preview');
+        if (pdfData) {
+            document.getElementById('pdfPreview').src = pdfData;
+        } else {
+            alert('No preview data available.');
+        }
+
+        // Download PDF Function
+        function downloadPDF() {
+            if (pdfData) {
+                const link = document.createElement('a');
+                link.href = pdfData;
+                link.download = "PreviewLabels.pdf";
+                link.click();
+            } else {
+                alert('No PDF data available for download.');
+            }
+        }
+    </script>
+
+    <style>
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .back-btn, .download-btn {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+        }
+
+        .back-btn {
+            background-color: #007bff; /* Blue */
+        }
+
+        .download-btn {
+            background-color: #28a745; /* Green */
+        }
+
+        .back-btn:hover {
+            background-color: #0056b3;
+        }
+
+        .download-btn:hover {
+            background-color: #218838;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 14px;
+        }
+    </style>
+</body>
+</html>
