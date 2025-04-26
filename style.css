@@ -105,6 +105,7 @@ button {
 button:hover {
     transform: scale(1.1);
     box-shadow: 0 0 20px rgba(0, 255, 255, 0.8);
+    background: linear-gradient(45deg, #ff4e00, #00ffeb);
 }
 
 button:active {
@@ -127,11 +128,7 @@ input[type="file"]:focus {
     margin-top: 30px;
 }
 
-.action-buttons:hover{
-      transform: scale(1.1);
-    box-shadow: 0px 0px 20px rgba(0, 255, 255, 0.8);
-    background: linear-gradient(45deg, #ff4e00, #00ffeb);
-}
+
 .preview-btn, .generate-pdf-btn {
     margin: 10px;
     padding: 15px 30px;
