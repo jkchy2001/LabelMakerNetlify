@@ -231,12 +231,25 @@ window.previewLabels = function () {
 if (window.location.pathname.includes('preview.html')) {
     const pdfData = localStorage.getItem('pdf_preview');
     if (pdfData) {
-        const iframe = document.createElement('iframe');
-        iframe.src = pdfData;
-        iframe.style.width = '100%';
-        iframe.style.height = '100vh';
-        iframe.style.border = 'none';
-        document.body.appendChild(iframe);
+        const pdfContainer = document.getElementById('pdf-container');
+        const pdfDataArrayBuffer = atob(pdfData.split(',')[1]);
+
+        const loadingTask = pdfjsLib.getDocument({ data: pdfDataArrayBuffer });
+        loadingTask.promise.then(pdf => {
+            for (let pageNum = 1; pageNum <= pdf.numPages; pageNum++) {
+                pdf.getPage(pageNum).then(page => {
+                    const canvas = document.createElement('canvas');
+                    const context = canvas.getContext('2d');
+                    const viewport = page.getViewport({ scale: 1.5 });
+
+                    canvas.width = viewport.width;
+                    canvas.height = viewport.height;
+                    pdfContainer.appendChild(canvas);
+
+                    page.render({ canvasContext: context, viewport: viewport });
+                });
+            }
+        });
     } else {
         document.body.innerHTML = '<h2>No preview available. Please generate labels first.</h2>';
     }
