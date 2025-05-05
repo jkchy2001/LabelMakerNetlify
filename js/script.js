@@ -49,8 +49,8 @@ function parseCSV(data) {
     const modeIndex = headers.indexOf('MODE');
 
     // Check if all required headers exist
-    if ((channelIndex === -1 && fixtureNumberIndex === -1) || addressIndex === -1 || fixtureTypeIndex === -1 || modeIndex === -1) {
-        alert('Invalid CSV format. Ensure the file contains headers: CHANNEL or FIXTURE_NUMBER, ADDRESS, FIXTURE_TYPE, MODE.');
+    if ((channelIndex === -1 && fixtureNumberIndex === -1) || addressIndex === -1 || LabelIndex === -1 || modeIndex === -1) {
+        alert('Invalid CSV format. Ensure the file contains headers: CHANNEL or FIXTURE_NUMBER, ADDRESS, Label, MODE.');
         return;
     }
     
@@ -62,7 +62,7 @@ function parseCSV(data) {
         return {
             channel: cols[channelIndex] || cols[fixtureNumberIndex] || 'No Data',
             address: cols[addressIndex] || 'No Data',
-            fixtureType: cols[fixtureTypeIndex] || 'No Data',
+            Label: cols[LabelIndex] || 'No Data',
             mode: cols[modeIndex] || 'No Data',
         };
     }).filter(label => label.channel !== 'No Data'); // Optional: Exclude rows without channel data
@@ -94,7 +94,7 @@ function parseXLSX(data) {
         return {
             channel: row[channelIndex]?.trim() || row[fixtureNumberIndex]?.trim() || 'No Data',
             address: row[addressIndex]?.trim() || '',
-            fixtureType: row[fixtureTypeIndex]?.trim() || '',
+            Label: row[LabelIndex]?.trim() || '',
             mode: row[modeIndex]?.trim() || ''
         };
     });
