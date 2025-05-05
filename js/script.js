@@ -45,7 +45,7 @@ function parseCSV(data) {
     const channelIndex = headers.indexOf('CHANNEL');
     const fixtureNumberIndex = headers.indexOf('FIXTURE_NUMBER');    
     const addressIndex = headers.indexOf('ADDRESS');
-    const fixtureTypeIndex = headers.indexOf('FIXTURE_TYPE');
+    const LabelIndex = headers.indexOf('LABEL');
     const modeIndex = headers.indexOf('MODE');
 
     // Check if all required headers exist
@@ -87,7 +87,7 @@ function parseXLSX(data) {
     const channelIndex = headers.indexOf('CHANNEL');
     const fixtureNumberIndex = headers.indexOf('FIXTURE_NUMBER');    
     const addressIndex = headers.indexOf('ADDRESS');
-    const fixtureTypeIndex = headers.indexOf('FIXTURE_TYPE');
+    const LabelIndex = headers.indexOf('LABEL');
     const modeIndex = headers.indexOf('MODE');
 
     labelData = rows.slice(1).map(row => {
@@ -188,7 +188,7 @@ function createPDF() {
         doc.setTextColor(0, 0, 0);
         doc.setFontSize(10);
         doc.text(`Mode: ${label.mode || 'No Data'}`, currentX + 5, currentY + labelHeight - 12);
-        doc.text(`Fixture: ${label.fixtureType || 'No Data'}`, currentX + 5, currentY + labelHeight - 6);
+        doc.text(`Fixture: ${label.Label || 'No Data'}`, currentX + 5, currentY + labelHeight - 6);
 
         // Update label position
         labelCount++;
